@@ -6,7 +6,7 @@ function PopupWithForm(props) {
         <div className={`popup ${props.isOpen ? "popup_open" : ""}`}>
             <div className="popup__overlay"></div>
             <div className="popup__content">
-                <button type="button" className="popup__close-icon popup__close-profile">
+                <button type="button" className="popup__close-icon">
                     <img className="popup__close-pic" src={Close} alt="Закрыть" onClick={props.onClose} />
                 </button>
                 <form name={props.name} className="form ">

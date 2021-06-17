@@ -33,11 +33,11 @@ function Main(props) {
                         <p className="profile__subtitle">{userDescription}</p>
                     </div>
                     <button type="button" className="profile__button-edit" onClick={props.onEditProfile}>
-                        <img className="profile__button-pict" src={Edit} alt="Редактировать" />
+                        <img className="profile__button-pict" src={Edit} alt="Редактировать профиль" />
                     </button>
                 </div>
                 <button type="button" className="profile__button-add" onClick={props.onAddPlace}>
-                    <img className="profile__plus" src={Plus} alt="Добавить" />
+                    <img className="profile__plus" src={Plus} alt="Добавить карточку" />
                 </button>
             </section>
 

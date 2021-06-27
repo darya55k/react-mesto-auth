@@ -21,8 +21,8 @@
             method: "PATCH",
             headers: this._headers,
             body: JSON.stringify({
-                name: formData.title,
-                about: formData.subtitle,
+                name: formData.name,
+                about: formData.about,
             }),
         }).then((res) => this._checkRequestResult(res));
     }
@@ -32,8 +32,8 @@
             method: "POST",
             headers: this._headers,
             body: JSON.stringify({
-                name: formData.name,
-                link: formData.link,
+                name: formData.place,
+                link: formData.image,
             }),
         }).then((res) => this._checkRequestResult(res));
     }
@@ -44,9 +44,9 @@
             headers: this._headers,
         }).then((res) => this._checkRequestResult(res));
     }
-    setLikeStatus(cardId, like) {
-        return fetch(`${this._url}/cards/likes/${cardId}`, {
-            method: like ? "DELETE" : "PUT",
+    setLikeStatus(id, isLiked) {
+        return fetch(`${this._url}/cards/likes/${id}`, {
+            method: isLiked ?  "PUT" : "DELETE",
             headers: this._headers,
         }).then((res) => this._checkRequestResult(res));
     }
@@ -56,7 +56,7 @@
             method: "PATCH",
             headers: this._headers,
             body: JSON.stringify({
-                avatar: formData.avatar,
+                avatar: formData.link,
             }),
         }).then((res) => this._checkRequestResult(res));
     }

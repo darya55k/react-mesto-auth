@@ -1,5 +1,12 @@
 export const BASE_URL = 'https://auth.nomoreparties.co';
 
+const checkResponse = (res) => {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(`Ошибка: ${res.status} - ${res.statusText}`);
+}
+
 export const register = (email, password) => {
   return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
@@ -9,13 +16,8 @@ export const register = (email, password) => {
     },
     body: JSON.stringify({ email, password })
   })
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status} - ${res.statusText}`);
-  });
-  // ({400 message: 'некорректно заполнено одно из полей' }));
+  .then(checkResponse) 
+  
 };
 
 export const authorize = (email, password) => {
@@ -27,12 +29,7 @@ export const authorize = (email, password) => {
     },
     body: JSON.stringify({ email, password })
   })
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status} - ${res.statusText}`);
-  });
+  .then(checkResponse) 
 };
 
 export const getContent = (token) => {
@@ -44,18 +41,5 @@ export const getContent = (token) => {
       'Authorization': `Bearer ${token}`,
     }
   })
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status} - ${res.statusText}`);
-    // if (!res.ok) {
-
-    //   return res.json()
-    //     .then((err) => {
-    //       res.status(401).res.send(err.message);
-    //     });
-    // }
-    // return res.json()
-  })
+  .then(checkResponse)
 };

@@ -13,7 +13,7 @@ import Register from "./Register";
 import ProtectedRoute from "./ProtectedRoute";
 import InfoTooltip from "./InfoTooltip";
 import { Redirect, Route, Switch, useHistory } from "react-router-dom";
-import * as auth from "../auth";
+import * as auth from "../utils/auth";
 
 function App() {
     const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
